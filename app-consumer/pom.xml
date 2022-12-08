@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.luferlux</groupId>
-    <artifactId>kafka-consumer</artifactId>
+    <artifactId>app-kafka-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>kafka-consumer</name>
-    <description>Kafka Consumer</description>
+    <name>app-kafka-consumer</name>
+    <description>App Kafka Consumer</description>
     <properties>
         <java.version>11</java.version>
     </properties>
