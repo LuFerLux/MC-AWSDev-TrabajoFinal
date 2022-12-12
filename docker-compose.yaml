@@ -1,21 +1,14 @@
 version: '3.4'
 
-networks:
-  network-db:
-    driver: bridge
-
 services:
+
   server-bd:
     build: ./server-bd/
     image: luferlux/mc-sbd-students
-    networks:
-      - network-db
     environment:
       - MARIADB_ROOT_HOST=%
       - MARIADB_DATABASE=students
       - MARIADB_ROOT_PASSWORD=toor
-    volumes:
-      - ./my-data:/var/lib/mysql/
     ports:
       - "3306:3306"
     restart: on-failure
@@ -24,12 +17,10 @@ services:
   app-consumer:
     build: ./app-consumer/
     image: luferlux/app-consumer
-    networks:
-      - network-db
+    container_name: app-consumer
     environment:
       - JAVA_OPTS=""
-      - KAFKA_BOOSTRAP_SERVER=192.168.1.6:9093
-      - KAFKA_GROUP_ID=group01
+      - KAFKA_BOOSTRAP_SERVER=b-1.kafkamsk.****.c18.kafka.us-east-1.amazonaws.com:9092
       - DATASOURCE_HOST=server-bd
       - DATASOURCE_PORT=3306
       - DATASOURCE_DATABASE=students
@@ -40,15 +31,16 @@ services:
     links:
       - server-bd:db
     ports:
-      - "8080:8080"
+      - "8090:8080"
     restart: on-failure
 
   app-producer:
     build: ./app-producer/
     image: luferlux/app-producer
+    container_name: app-producer
     environment:
       - JAVA_OPTS=""
-      - KAFKA_BOOSTRAP_SERVER=192.168.1.6:9093
+      - KAFKA_BOOSTRAP_SERVER=b-1.kafkamsk.****.c18.kafka.us-east-1.amazonaws.com:9092
     ports:
-      - "8090:8080"
+      - "8091:8080"
     restart: on-failure

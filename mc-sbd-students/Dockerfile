@@ -5,8 +5,6 @@ ENV MARIADB_ROOT_PASSWORD=toor
 ENV MARIADB_DATABASE=students
 ENV MARIADB_ROOT_HOST=%
 
-COPY ./scripts/ /docker-entrypoint-initdb.d/
-
-RUN ls -al /docker-entrypoint-initdb.d/ && sleep 5s
+ADD ./script.sql /docker-entrypoint-initdb.d/ddl.sql
 
 CMD ["--default-authentication-plugin=mysql_native_password"]
