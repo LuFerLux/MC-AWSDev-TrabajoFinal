@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "22a9f781-6219-443a-bb8c-268b0d16920e",
+		"name": "MC T. Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3986551"
+	},
+	"item": [
+		{
+			"name": "ApiGateway",
+			"item": [
+				{
+					"name": "ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsf7cqf5qf.execute-api.us-east-1.amazonaws.com/dev/v1/students",
+							"protocol": "https",
+							"host": [
+								"qsf7cqf5qf",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"v1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qsf7cqf5qf.execute-api.us-east-1.amazonaws.com/dev/v1/students/72353534",
+							"protocol": "https",
+							"host": [
+								"qsf7cqf5qf",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"v1",
+								"students",
+								"72353534"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student AVG Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dni\": \"72353534\",\r\n    \"nombres\": \"LuFerLux\",\r\n    \"notas\": [\r\n        16,\r\n        13,\r\n        19,\r\n        17\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qsf7cqf5qf.execute-api.us-east-1.amazonaws.com/dev/v1/students/calc-average",
+							"protocol": "https",
+							"host": [
+								"qsf7cqf5qf",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"v1",
+								"students",
+								"calc-average"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,19 @@
+# test /v1/students/calc-average
+
+curl --location --request POST 'https://qsf7cqf5qf.execute-api.us-east-1.amazonaws.com/dev/v1/students/calc-average' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "dni": "72353534",
+    "nombres": "LuFerLux",
+    "notas": [
+        16,
+        13,
+        19,
+        17
+    ]
+}'
+
+
+# test /v1/students/72353534
+
+curl https://qsf7cqf5qf.execute-api.us-east-1.amazonaws.com/dev/v1/students/72353534
